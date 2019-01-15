@@ -5,7 +5,7 @@ WeasyPrint Dockerized
 ## Build
 
 ```bash
-docker build -t weasyprint .
+docker build -t weasyprint https://github.com/cakebake/weasyprint-dockerized.git
 ```
 
 ## Run
