@@ -1,4 +1,5 @@
 # WeasyPrintDocker
+
 WeasyPrint Dockerized
 
 ## Build
@@ -10,5 +11,6 @@ docker build -t weasyprint .
 ## Run
 
 ```bash
-docker run -it --rm weasyprint
+docker run -it --rm -v $PWD/output:/tmp/output weasyprint \
+  http://weasyprint.org print.pdf
 ```
