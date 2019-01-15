@@ -1,6 +1,8 @@
 FROM python:3.7-stretch
 
-RUN apt-get update -qq && apt-get install -qq -y \
+RUN echo "deb http://ftp.debian.org/debian stretch-backports main" > /etc/apt/sources.list.d/stretch-backports.list
+
+RUN apt-get update -qq && apt-get -t stretch-backports install -qq -y \
     build-essential \
     python3-dev \
     python3-pip \
@@ -12,8 +14,15 @@ RUN apt-get update -qq && apt-get install -qq -y \
     libpangocairo-1.0-0 \
     libgdk-pixbuf2.0-0 \
     libffi-dev \
-    shared-mime-info
+    shared-mime-info \
+    curl
 
-RUN pip install --trusted-host pypi.python.org 'WeasyPrint==44'
+RUN pip install --no-cache-dir --trusted-host pypi.python.org \
+    'WeasyPrint==44'
 
-ENTRYPOINT ["/usr/local/bin/weasyprint"]
+RUN apt-get clean && \
+    rm -fr /var/lib/apt/lists/* && \
+    rm -fr /tmp/* && \
+    rm -fr /var/tmp/*
+
+ENTRYPOINT ["weasyprint"]
