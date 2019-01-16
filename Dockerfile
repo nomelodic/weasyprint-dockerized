@@ -22,7 +22,7 @@ RUN apt-get clean && \
     rm -fr /tmp/* && \
     rm -fr /var/tmp/*
 
-RUN mkdir /tmp/output
-WORKDIR /tmp/output
+RUN mkdir /tmp/workdir
+WORKDIR /tmp/workdir
 
 ENTRYPOINT ["weasyprint"]
