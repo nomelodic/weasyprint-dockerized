@@ -15,7 +15,7 @@ RUN apt-get update -qq && apt-get install -qq -y \
     shared-mime-info
 
 RUN pip3 install --upgrade --no-cache-dir pip && \
-    pip install --upgrade --no-cache-dir 'WeasyPrint==44'
+    pip install --upgrade --no-cache-dir 'WeasyPrint==61'
 
 RUN apt-get clean && \
     rm -fr /var/lib/apt/lists/* && \
@@ -25,4 +25,4 @@ RUN apt-get clean && \
 RUN mkdir /tmp/workdir
 WORKDIR /tmp/workdir
 
-ENTRYPOINT ["weasyprint"]
+ENTRYPOINT ["weasyprint61"]
