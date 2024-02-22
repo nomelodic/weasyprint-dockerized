@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM ubuntu:20.04
 
 RUN apt-get update -qq && apt-get install -qq -y \
     build-essential \
@@ -11,7 +11,11 @@ RUN apt-get update -qq && apt-get install -qq -y \
     libpango-1.0-0 \
     libpangocairo-1.0-0 \
     libgdk-pixbuf2.0-0 \
+    libpangoft2-1.0-0 \
+    libharfbuzz0b \
     libffi-dev \
+    libjpeg-dev \
+    libopenjp2-7-dev \
     shared-mime-info
 
 RUN pip3 install --upgrade --no-cache-dir pip && \
