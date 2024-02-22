@@ -29,4 +29,4 @@ RUN apt-get clean && \
 RUN mkdir /tmp/workdir
 WORKDIR /tmp/workdir
 
-ENTRYPOINT ["weasyprint61"]
+ENTRYPOINT ["weasyprint"]
