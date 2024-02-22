@@ -14,8 +14,6 @@ RUN apt-get update -qq && apt-get install -qq -y \
     libpangoft2-1.0-0 \
     libharfbuzz0b \
     libffi-dev \
-    libjpeg-dev \
-    libopenjp2-7-dev \
     shared-mime-info
 
 RUN pip3 install --upgrade --no-cache-dir pip && \
